@@ -1,4 +1,4 @@
-const s = 1; /* size - the bigger the faster (lower quality) */
+const s = 2; /* size - the bigger the faster (lower quality) */
 const canvas = document.getElementById("canvas");
 canvas.width = w = Math.floor(innerWidth/s);
 canvas.height = h = Math.floor(innerHeight/s);
