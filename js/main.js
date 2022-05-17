@@ -38,9 +38,9 @@ function animation(){
 
 
 			//bit manipulation version of algorithm
-			buffer2[i][j] = ((buffer1[i-1][j] ^
-							  buffer1[i+1][j] ^
-							  buffer1[i][j-1] ^
+			buffer2[i][j] = ((buffer1[i-1][j] |
+							  buffer1[i+1][j] |
+							  buffer1[i][j-1] |
 							  buffer1[i][j+1]));
 
 		/*
