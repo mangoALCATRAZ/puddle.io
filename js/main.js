@@ -1,4 +1,4 @@
-const s = 3; /* size - the bigger the faster (lower quality) */
+const s = 2; /* size - the bigger the faster (lower quality) */
 const canvas = document.getElementById("canvas");
 canvas.width = w = Math.floor(innerWidth/s);
 canvas.height = h = Math.floor(innerHeight/s);
@@ -33,19 +33,19 @@ function animation(){
 			buffer2[i][j][0] = ((buffer1[i-1][j][0] +
 								 buffer1[i+1][j][0] +
 								 buffer1[i][j-1][0] +
-								 buffer1[i][j+1][0]) / 2  - buffer2[i][j][0]);
+								 buffer1[i][j+1][0]) / 2  - buffer2[i][j][0] * damping);
 
 			// morph green
 			buffer2[i][j][1] = ((buffer1[i-1][j][1] +
 								 buffer1[i+1][j][1] +
 								 buffer1[i][j-1][1] +
-								 buffer1[i][j+1][1]) / 2  - buffer2[i][j][1]);
+								 buffer1[i][j+1][1]) / 2  - buffer2[i][j][1] * damping);
 
 			//morph blue
 			buffer2[i][j][2] = ((buffer1[i-1][j][2] +
 								 buffer1[i+1][j][2] +
 								 buffer1[i][j-1][2] +
-								 buffer1[i][j+1][2]) / 2  - buffer2[i][j][2]);
+								 buffer1[i][j+1][2]) / 2  - buffer2[i][j][2] * damping);
 		}
 	}
 	
@@ -78,11 +78,15 @@ animation();
 function ripple(e){
 	let x = Math.floor(e.clientX/s);
 	let y = Math.floor(e.clientY/s);
+
+	/*
 	if(red == 510) red = 0;
 	else if(red == 0) red = 510;
 	if(blue == 0) blue = 510;
 	else if(blue == 510) blue = 0
 
+
+	 */
 
 
 	//red test
@@ -96,25 +100,23 @@ function ripple(e){
 	}
 
  */
+	let colorChosen = randomColor();
+
+	buffer1[x][y][0] = colorChosen.getRedDouble(); // R
+	buffer1[x+1][y][0] = colorChosen.getRedDouble(); // R
+	buffer1[x][y+1][0] = colorChosen.getRedDouble(); // R
+	buffer1[x+1][y+1][0] = colorChosen.getRedDouble(); // R
 
 
+	buffer1[x][y][1] = colorChosen.getGreenDouble(); // G
+	buffer1[x+1][y][1] = colorChosen.getGreenDouble(); // G
+	buffer1[x][y+1][1] = colorChosen.getGreenDouble(); // G
+	buffer1[x+1][y+1][1] = colorChosen.getGreenDouble(); // G
 
-
-	buffer1[x][y][0] = red; // R
-	buffer1[x+1][y][0] = red; // R
-	buffer1[x][y+1][0] = red; // R
-	buffer1[x+1][y+1][0] = red; // R
-
-
-	buffer1[x][y][1] = green; // G
-	buffer1[x+1][y][1] = green; // G
-	buffer1[x][y+1][1] = green; // G
-	buffer1[x+1][y+1][1] = green; // G
-
-	buffer1[x][y][2] = blue; // B
-	buffer1[x+1][y][2] = blue; // B
-	buffer1[x][y+1][2] = blue; // B
-	buffer1[x+1][y+1][2] = blue; // B
+	buffer1[x][y][2] = colorChosen.getBlueDouble(); // B
+	buffer1[x+1][y][2] = colorChosen.getBlueDouble(); // B
+	buffer1[x][y+1][2] = colorChosen.getBlueDouble(); // B
+	buffer1[x+1][y+1][2] = colorChosen.getBlueDouble(); // B
 
 
 
@@ -122,6 +124,8 @@ function ripple(e){
 
 	//buffer1[x][y] = 500;
 }
+
+
 
 document.addEventListener("click", ripple  );
 

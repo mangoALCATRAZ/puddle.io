@@ -3,7 +3,7 @@ html, body {
 	padding: 0;
 	height: 100%;
 
-	background: black;
+	background: #242424;
 	/*background: url('https://images.unsplash.com/photo-1516528387618-afa90b13e000?ixlib=rb-1.2.1&w=1366&q=90') center bottom; */
 	background-size: cover;
 }
