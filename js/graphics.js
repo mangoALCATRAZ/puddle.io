@@ -12,7 +12,7 @@ let buffer1 = Array(w).fill().map(_=>Array(h).fill().map(_=>Array(3).fill(0)));
 //let buffer2 = Array(w).fill().map(_=>Array(h).fill(0));
 let buffer2 = Array(w).fill().map(_=>Array(h).fill().map(_=>Array(3).fill(0)));
 
-const damping = 0.999999;
+const damping = 0.99999;
 let temp;
 
 let red = 510;
