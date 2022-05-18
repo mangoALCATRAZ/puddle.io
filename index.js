@@ -15,8 +15,15 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) =>{
     console.log('a user connected!');
+
+    socket.on('ripple data', (data) => {
+        console.log('ripple!' + data.x + " " + data.y + " Red:" + data.red + " Green: " + data.green + " Blue: " + data.blue);
+
+        socket.broadcast.emit('ripple data', data);
+    });
 });
 
 server.listen(3000, () => {
     console.log('listening on *:3000');
 });
+

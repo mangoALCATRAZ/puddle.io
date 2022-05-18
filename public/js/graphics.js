@@ -63,46 +63,26 @@ animation();
 
 
 
-function ripple(x, y){
-
-	let colorChosen = randomColor();
-
-	buffer1[x][y][0] = colorChosen.getRedTimesTwo(); // R
-	buffer1[x+1][y][0] = colorChosen.getRedTimesTwo(); // R
-	buffer1[x][y+1][0] = colorChosen.getRedTimesTwo(); // R
-	buffer1[x+1][y+1][0] = colorChosen.getRedTimesTwo(); // R
+function ripple(x, y, color){
 
 
-	buffer1[x][y][1] = colorChosen.getGreenTimesTwo(); // G
-	buffer1[x+1][y][1] = colorChosen.getGreenTimesTwo(); // G
-	buffer1[x][y+1][1] = colorChosen.getGreenTimesTwo(); // G
-	buffer1[x+1][y+1][1] = colorChosen.getGreenTimesTwo(); // G
 
-	buffer1[x][y][2] = colorChosen.getBlueTimesTwo(); // B
-	buffer1[x+1][y][2] = colorChosen.getBlueTimesTwo(); // B
-	buffer1[x][y+1][2] = colorChosen.getBlueTimesTwo(); // B
-	buffer1[x+1][y+1][2] = colorChosen.getBlueTimesTwo(); // B
+	buffer1[x][y][0] = color.getRedTimesTwo(); // R
+	buffer1[x+1][y][0] = color.getRedTimesTwo(); // R
+	buffer1[x][y+1][0] = color.getRedTimesTwo(); // R
+	buffer1[x+1][y+1][0] = color.getRedTimesTwo(); // R
+
+
+	buffer1[x][y][1] = color.getGreenTimesTwo(); // G
+	buffer1[x+1][y][1] = color.getGreenTimesTwo(); // G
+	buffer1[x][y+1][1] = color.getGreenTimesTwo(); // G
+	buffer1[x+1][y+1][1] = color.getGreenTimesTwo(); // G
+
+	buffer1[x][y][2] = color.getBlueTimesTwo(); // B
+	buffer1[x+1][y][2] = color.getBlueTimesTwo(); // B
+	buffer1[x][y+1][2] = color.getBlueTimesTwo(); // B
+	buffer1[x+1][y+1][2] = color.getBlueTimesTwo(); // B
 
 
 
 }
-
-
-
-document.addEventListener("click", clickTrigger  );
-
-function clickTrigger(e){
-	let x = Math.floor(e.clientX/s);
-	let y = Math.floor(e.clientY/s);
-
-	ripple(x, y);
-}
-
-
-window.addEventListener("resize",function(){
-	location.reload();
-});
-
-
-//debug test click immediately after script execution
-document.elementFromPoint(0, 0).click();
