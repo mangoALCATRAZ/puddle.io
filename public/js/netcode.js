@@ -10,11 +10,7 @@ function sendRipple(x, y, color, big){
 
 }
 
-socket.on('ripple data', function(data) {
-    let color = new ColorValue(data.red, data.green, data.blue);
 
-    ripple(data.x, data.y, color);
-});
 
 
 
