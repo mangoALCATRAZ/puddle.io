@@ -31,10 +31,20 @@
 		socket.on('ripple data', function(data) {
 			let color = new ColorValue(data.red, data.green, data.blue);
 
-			ripple(data.x, data.y, color);
+			let xPercentTranslated = Math.floor(percentTranslate(data.x, true));
+			let yPercentTranslated = Math.floor(percentTranslate(data.y, false));
+
+			ripple(xPercentTranslated, yPercentTranslated, color);
 		});
 
-
+		function percentTranslate(valIn, width){
+			if(width){
+				return (canvas.width * valIn) / 100;
+			}
+			else{
+				return (canvas.height * valIn) / 100;
+			}
+		}
 
 	</script>
 </body>
