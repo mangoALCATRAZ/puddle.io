@@ -1,5 +1,5 @@
-const s = 2; /* size - the bigger the faster (lower quality) */
 const canvas = document.getElementById("canvas");
+const s = size_adjuster(innerWidth, innerHeight); /* size - the bigger the faster (lower quality) */
 canvas.width = w = Math.floor(innerWidth/s);
 canvas.height = h = Math.floor(innerHeight/s);
 canvas.style.width = '100%';
@@ -14,6 +14,19 @@ let buffer2 = Array(w).fill().map(_=>Array(h).fill().map(_=>Array(3).fill(0)));
 
 const damping = 0.99999;
 let temp;
+
+
+function size_adjuster(width, height){ //returns higher size for larger canvas size to increase performance
+	if(width >= 1280 && height >= 720){ // a quick fix that should be retired once optimizations are made
+		return 5;
+	}
+
+	else return 3;
+}
+
+
+
+
 
 function animation(){
 	
