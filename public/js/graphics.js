@@ -12,24 +12,21 @@ let buffer1 = Array(w).fill().map(_=>Array(h).fill().map(_=>Array(3).fill(0)));
 //let buffer2 = Array(w).fill().map(_=>Array(h).fill(0));
 let buffer2 = Array(w).fill().map(_=>Array(h).fill().map(_=>Array(3).fill(0)));
 
-const damping = 0.99999;
+const damping = 0.99998;
+//const damping = 1;
 let temp;
 
 
 function size_adjuster(width, height){ //returns higher size for larger canvas size to increase performance
 	if(width >= 1280 && height >= 720){ // a quick fix that should be retired once optimizations are made
-		return 5;
+		return 3.5;
 	}
 
-	else return 3;
+	else return 2;
 }
 
 
-
-
-
 function animation(){
-	
 	for(let i = 1; i < w-1; i++){
 		for(let j = 1; j < h-1; j++){
 			// morph red

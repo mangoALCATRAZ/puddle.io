@@ -1,7 +1,7 @@
 document.addEventListener("click", clickTrigger  );
 
 
-canvas.onmousemove = hover(e);
+//canvas.onmousemove = hover(e);
 
 function clickTrigger(e){
     let x = Math.floor(e.clientX/s);

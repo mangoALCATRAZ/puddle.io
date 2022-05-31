@@ -13,13 +13,29 @@
 	<meta property="og:image" content=" " />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
-	<title> Waves </title>
+	<title>puddle.io</title>
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 	<link rel="icon" href="favicon.png" sizes="256x256"/>
 	<link rel="apple-touch-icon" href="favicon.png" />
 </head>
 <body>
 	<canvas id="canvas"></canvas>
+
+	<!-- intro modal -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<img id="logo" src="/img/logo_transparant.png" width="70%">
+			<h1>Make ripples with others online!</h1>
+			<h2>Name<span><input type="text" class="form" id="name"></span></h2>
+			<h2>Location<span><input type="text" class="form" id="location"></span></h2>
+			<input type="submit" value="Submit" id="sub">
+			<!-- debug close button -->
+			<span class="close">&times;</span>
+		</div>
+	</div>
+
+
+
 	<script type="text/javascript" src="js/graphics.js"></script>
 	<script type="text/javascript" src="js/color.js"></script>
 	<script type="text/javascript" src="js/netcode.js"></script>
@@ -27,6 +43,8 @@
 	<script type="text/javascript" src="js/dialogue.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
+
+
 		let socket = io();
 
 		socket.on('ripple data', function(data) {
