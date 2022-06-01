@@ -4,16 +4,19 @@ document.addEventListener("click", clickTrigger  );
 //canvas.onmousemove = hover(e);
 
 function clickTrigger(e){
-    let x = Math.floor(e.clientX/s);
-    let y = Math.floor(e.clientY/s);
+    if(introDone == true) {
 
-    let percentX = percentage(x, true);
-    let percentY = percentage(y, false);
+        let x = Math.floor(e.clientX / s);
+        let y = Math.floor(e.clientY / s);
 
-    let colorChosen = randomColor();
-    sendRipple(percentX, percentY, colorChosen, false);
+        let percentX = percentage(x, true);
+        let percentY = percentage(y, false);
 
-    ripple(x, y, colorChosen);
+        let colorChosen = randomColor();
+        sendRipple(percentX, percentY, colorChosen, false);
+
+        ripple(x, y, colorChosen);
+    }
 }
 
 function percentage(valIn, width){

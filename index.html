@@ -22,18 +22,25 @@
 	<canvas id="canvas"></canvas>
 
 	<!-- intro modal -->
-	<div id="myModal" class="modal">
-		<div class="modal-content">
+	<div id="myModal1" class="modal">
+		<div id="modal1" class="modal-content">
 			<img id="logo" src="/img/logo_transparant.png" width="70%">
 			<h1>Make ripples with others online!</h1>
 			<h2>Name<span><input type="text" class="form" id="name"></span></h2>
 			<h2>Location<span><input type="text" class="form" id="location"></span></h2>
 			<input type="submit" value="Submit" id="sub">
 			<!-- debug close button -->
-			<span class="close">&times;</span>
+			<span id="close" class="close">&times;</span>
 		</div>
 	</div>
 
+	<!-- Confirmation Modal -->
+	<div id="myModal2" class="modal_hidden">
+		<div id="modal2" class="modal-content">
+			<h1 id="confirm"></h1>
+			<input type="submit" value="Yes" id="sub2">
+		</div>
+	</div>
 
 
 	<script type="text/javascript" src="js/graphics.js"></script>
@@ -41,9 +48,12 @@
 	<script type="text/javascript" src="js/netcode.js"></script>
 	<script type="text/javascript" src="js/eventHandler.js"></script>
 	<script type="text/javascript" src="js/dialogue.js"></script>
+	<script type="text/javascript" src="js/modal.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-
+		let user = null;
+		let introDone = false;
 
 		let socket = io();
 
